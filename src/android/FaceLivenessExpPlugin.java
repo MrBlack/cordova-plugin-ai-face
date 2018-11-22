@@ -25,16 +25,21 @@ public class FaceLivenessExpPlugin extends CordovaPlugin {
         config.initLib();
     }
 
-    @Override
+     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
         if (action.equals("FaceLivenessExp")) {
             faceLivenessExp();
+            return true;
         } else if (action.equals("FaceDetectExp")) {
             faceDetectExp();
+            return true;
         }
         return super.execute(action, args, callbackContext);
     }
+
+
+
 
     private void faceDetectExp() {
         Intent intent = new Intent(cordova.getActivity(), FaceDetectExpActivity.class);
