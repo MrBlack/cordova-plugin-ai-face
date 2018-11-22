@@ -15,13 +15,13 @@ import android.util.Log;
 import com.android.volley.VolleyError;
 import com.android.volley.AuthFailureError;
 import java.util.Map;
+
 import com.baidu.idl.face.platform.FaceStatusEnum;
-import com.baidu.idl.face.platform.ui.FaceLivenessActivity;
+import com.baidu.idl.face.platform.ui.FaceDetectActivity;
 
 import java.util.HashMap;
 
-public class FaceLivenessExpActivity extends FaceLivenessActivity {
-
+public class FaceDetectExpActivity extends FaceDetectActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,10 @@ public class FaceLivenessExpActivity extends FaceLivenessActivity {
     }
 
     @Override
-    public void onLivenessCompletion(FaceStatusEnum status, String message, HashMap<String, String> base64ImageMap) {
-        super.onLivenessCompletion(status, message, base64ImageMap);
+    public void onDetectCompletion(FaceStatusEnum status, String message, HashMap<String, String> base64ImageMap) {
+        super.onDetectCompletion(status, message, base64ImageMap);
         if (status == FaceStatusEnum.OK && mIsCompletion) {
-			String date = base64ImageMap.get("bestImage"+1);
+			String date = base64ImageMap.get("bestImage"+0);
             returnResult(date, true);
         } else if (status == FaceStatusEnum.Error_DetectTimeout ||
                 status == FaceStatusEnum.Error_LivenessTimeout ||
@@ -41,6 +41,8 @@ public class FaceLivenessExpActivity extends FaceLivenessActivity {
             returnResult("采集超时", false);
         }
     }
+	
+
     public void requestPermissions(int requestCode, String permission) {
         if (permission != null && permission.length() > 0) {
             try {
