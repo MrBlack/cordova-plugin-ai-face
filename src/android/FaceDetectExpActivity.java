@@ -33,7 +33,7 @@ public class FaceDetectExpActivity extends FaceDetectActivity {
     public void onDetectCompletion(FaceStatusEnum status, String message, HashMap<String, String> base64ImageMap) {
         super.onDetectCompletion(status, message, base64ImageMap);
         if (status == FaceStatusEnum.OK && mIsCompletion) {
-			String date = base64ImageMap.get("bestImage"+1);
+			String date = base64ImageMap.get("bestImage"+0);
             returnResult(date, true);
         } else if (status == FaceStatusEnum.Error_DetectTimeout ||
                 status == FaceStatusEnum.Error_LivenessTimeout ||
