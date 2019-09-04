@@ -28,5 +28,3 @@
 licenseID = "自己的id";
 
 licenseFileName = "自己的FIleName";
-
-同时请不要没经过本人授权私自上传到插件库
