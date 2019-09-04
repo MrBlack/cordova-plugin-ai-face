@@ -28,3 +28,5 @@
 licenseID = "自己的id";
 
 licenseFileName = "自己的FIleName";
+
+有问题可以发送到我的邮箱647836186@163.com
